@@ -8,6 +8,9 @@ import Colors from "../constants/Colors";
 import styles from "./styles";
 
 import { Ionicons } from "@expo/vector-icons";
+import ChatRoom, {
+  screenOptions as chatRoomOptions,
+} from "../screens/ChatRoom";
 
 const StackNav = createStackNavigator();
 
@@ -46,6 +49,11 @@ export default function AppNavigator() {
               </View>
             ),
           }}
+        />
+        <StackNav.Screen
+          name="ChatRoom"
+          component={ChatRoom}
+          options={chatRoomOptions}
         />
       </StackNav.Navigator>
     </NavigationContainer>

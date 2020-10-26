@@ -3,10 +3,10 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 
 import { Fontisto } from "@expo/vector-icons";
 
-import CameraScreen from "../screens/CameraScreen";
-import ChatsScreen from "../screens/ChatsScreen";
-import StatusScreen from "../screens/StatusScreen";
-import CallsScreen from "../screens/CallsScreen";
+import CameraScreen from "../screens/tabScreens/CameraScreen";
+import ChatsListScreen from "../screens/tabScreens/ChatsListScreen";
+import StatusScreen from "../screens/tabScreens/StatusScreen";
+import CallsScreen from "../screens/tabScreens/CallsScreen";
 import Colors from "../constants/Colors";
 
 const TabNav = createMaterialTopTabNavigator();
@@ -39,7 +39,7 @@ function TabNavigator() {
           tabBarLabel: () => null,
         }}
       />
-      <TabNav.Screen name="Chats" component={ChatsScreen} />
+      <TabNav.Screen name="Chats" component={ChatsListScreen} />
       <TabNav.Screen name="Status" component={StatusScreen} />
       <TabNav.Screen name="Calls" component={CallsScreen} />
     </TabNav.Navigator>
