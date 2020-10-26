@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import TabNavigator from "./TabNavigation";
+import TabNavigator from "./TabNavigator";
 import Colors from "../constants/Colors";
 import styles from "./styles";
 
@@ -14,6 +14,7 @@ const StackNav = createStackNavigator();
 const StackNavDefOptions = {
   headerStyle: {
     backgroundColor: Colors.light.tint,
+    elevation: 0,
   },
   headerTintColor: Colors.light.background,
   headerTitleStyle: {
