@@ -1,11 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
+
+import ChatListBox from "../components/ChatListBox";
+import ChatRooms from "../data/ChatRooms";
 
 const ChatsScreen = (props) => {
   return (
-    <View>
-      <Text>ChatsScreen</Text>
-    </View>
+    <FlatList
+      data={ChatRooms}
+      renderItem={(room) => <ChatListBox chatRoom={room.item} />}
+    />
   );
 };
 
