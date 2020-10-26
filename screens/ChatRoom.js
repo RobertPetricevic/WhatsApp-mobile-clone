@@ -1,14 +1,23 @@
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  FlatList,
+} from "react-native";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
+import Chats from "../data/Chats";
+import MessageBox from "../components/MessageBox";
 
 const ChatRoom = (props) => {
   const user = props.route.params.user;
+  const { messages } = Chats;
 
   props.navigation.setOptions({
     headerTitle: () => (
@@ -20,9 +29,21 @@ const ChatRoom = (props) => {
   });
 
   return (
-    <View>
-      <Text>ChatRoom</Text>
-    </View>
+    <ImageBackground
+      style={styles.bgImg}
+      source={{
+        uri:
+          "https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png",
+      }}
+    >
+      <FlatList
+        style={styles.chatContainer}
+        data={messages}
+        renderItem={(message) => (
+          <MessageBox message={message.item} user={user} />
+        )}
+      />
+    </ImageBackground>
   );
 };
 
@@ -69,6 +90,14 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
+  },
+  bgImg: {
+    width: "100%",
+    height: "100%",
+  },
+  chatContainer: {
+    flex: 1,
+    padding: 10,
   },
 });
 
