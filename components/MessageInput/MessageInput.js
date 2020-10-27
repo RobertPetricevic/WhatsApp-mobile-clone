@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput } from "react-native";
+import { View, TextInput, TouchableWithoutFeedback } from "react-native";
 
 import { Fontisto } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
@@ -15,14 +15,21 @@ const MessageInput = (props) => {
   };
 
   const sendMessageHandler = () => {
-    console.log(textInput);
-    setTextInput("");
+    if (textInput.length !== 0) {
+      // console.log(textInput);
+      setTextInput("");
+    }
   };
 
   return (
     <View style={styles.msgInput}>
       <View style={styles.inputContainer}>
-        <Fontisto name="smiley" size={24} color="gray" />
+        <Fontisto
+          name="smiley"
+          size={24}
+          color="gray"
+          style={styles.inputIcons}
+        />
         <TextInput
           style={styles.textInput}
           placeholder="Type a message"
@@ -30,19 +37,30 @@ const MessageInput = (props) => {
           onChangeText={changeInputHandler}
           multiline
         />
-        <Ionicons name="md-attach" size={24} color="gray" />
+        <Ionicons
+          name="md-attach"
+          size={24}
+          color="gray"
+          style={styles.inputIcons}
+        />
         {textInput.length === 0 && (
-          <Ionicons name="md-camera" size={24} color="gray" />
+          <Ionicons
+            name="md-camera"
+            size={24}
+            color="gray"
+            style={styles.inputIcons}
+          />
         )}
       </View>
-      <View style={styles.rightIconContainer}>
-        <Ionicons
-          name={textInput.length === 0 ? "md-mic" : "md-send"}
-          size={18}
-          color={Colors.light.background}
-          onPress={sendMessageHandler}
-        />
-      </View>
+      <TouchableWithoutFeedback onPress={sendMessageHandler}>
+        <View style={styles.rightIconContainer}>
+          <Ionicons
+            name={textInput.length === 0 ? "md-mic" : "md-send"}
+            size={25}
+            color={Colors.light.background}
+          />
+        </View>
+      </TouchableWithoutFeedback>
     </View>
   );
 };

@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   chatContainer: {
     paddingHorizontal: 10,
     flex: 1,
+    marginTop: 5,
   },
 });
 
