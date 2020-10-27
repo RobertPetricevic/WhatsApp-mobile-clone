@@ -10,7 +10,7 @@ import styles from "./styles";
 import { Ionicons } from "@expo/vector-icons";
 import ChatRoom, {
   screenOptions as chatRoomOptions,
-} from "../screens/ChatRoom";
+} from "../screens/ChatRoom/ChatRoom";
 
 const StackNav = createStackNavigator();
 
