@@ -4,7 +4,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import { Fontisto } from "@expo/vector-icons";
 
 import CameraScreen from "../screens/tabScreens/CameraScreen";
-import ChatsListScreen from "../screens/tabScreens/ChatsListScreen";
+import ChatsListScreen from "../screens/tabScreens/ChatListScreen/ChatsListScreen";
 import StatusScreen from "../screens/tabScreens/StatusScreen";
 import CallsScreen from "../screens/tabScreens/CallsScreen";
 import Colors from "../constants/Colors";
