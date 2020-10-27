@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { StyleSheet, View, ImageBackground, FlatList } from "react-native";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -14,6 +14,7 @@ import styles from "./styles";
 const ChatRoom = (props) => {
   const user = props.route.params.user;
   const { messages } = Chats;
+  const flatlist = useRef(null);
 
   // props.navigation.setOptions({
   //   headerTitle: () => (
@@ -36,6 +37,8 @@ const ChatRoom = (props) => {
     >
       <View style={styles.chatContainer}>
         <FlatList
+          ref={flatlist}
+          onContentSizeChange={() => flatlist.current.scrollToEnd()}
           data={messages}
           renderItem={(message) => (
             <MessageBox message={message.item} user={user} />
